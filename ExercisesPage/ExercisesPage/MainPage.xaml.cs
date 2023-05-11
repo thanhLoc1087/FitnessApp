@@ -1,18 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Xamarin.Forms;
+﻿using Xamarin.Forms;
 
 namespace ExercisesPage
 {
     public partial class MainPage : ContentPage
     {
+        readonly MainViewModel _viewModel;
         public MainPage()
         {
             InitializeComponent();
+            BindingContext = _viewModel = new MainViewModel();
+            _viewModel.GetExercises();
         }
     }
 }

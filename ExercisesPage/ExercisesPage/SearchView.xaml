@@ -3,7 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
              xmlns:local="clr-namespace:ExercisesPage"
              x:Class="ExercisesPage.SearchView">
-    <ContentPage.Content>
+    <!--<ContentPage.Content>
         <RefreshView x:DataType="local:SearchViewModel" Command="{Binding LoadItemsCommand}" IsRefreshing="{Binding IsBusy, Mode=TwoWay}">
             <CollectionView x:Name="ItemsListView"
                 ItemsSource="{Binding Items}"
@@ -31,5 +31,5 @@
                 </CollectionView.ItemTemplate>
             </CollectionView>
         </RefreshView>
-    </ContentPage.Content>
+    </ContentPage.Content>-->
 </ContentPage>
