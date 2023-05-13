@@ -1,15 +1,15 @@
-﻿using Xamarin.Forms;
+﻿using ExercisesPage.Views;
+using Xamarin.Forms;
 
 namespace ExercisesPage
 {
-    public partial class MainPage : ContentPage
+    public partial class MainPage : Xamarin.Forms.Shell
     {
-        readonly MainViewModel _viewModel;
         public MainPage()
         {
             InitializeComponent();
-            BindingContext = _viewModel = new MainViewModel();
-            _viewModel.GetExercises();
+            Routing.RegisterRoute(nameof(ExercisePage), typeof(ExercisePage));
         }
+
     }
 }

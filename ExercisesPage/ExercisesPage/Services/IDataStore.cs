@@ -3,7 +3,7 @@ using System.Threading.Tasks;
 
 namespace ExercisesPage.Services
 {
-    internal interface IDataStore<T>
+    public interface IDataStore<T>
     {
         Task<bool> AddItemAsync(T item);
         Task<bool> UpdateItemAsync(T item);
