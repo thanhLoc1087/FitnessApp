@@ -9,7 +9,7 @@ namespace ExercisesPage
         {
             InitializeComponent();
             Routing.RegisterRoute(nameof(ExercisePage), typeof(ExercisePage));
+            Routing.RegisterRoute(nameof(ExerciseDetailPage), typeof(ExerciseDetailPage));
         }
-
     }
 }

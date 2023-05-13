@@ -11,14 +11,13 @@ using Xamarin.Forms.Xaml;
 namespace ExercisesPage.Views
 {
 	[XamlCompilation(XamlCompilationOptions.Compile)]
-	public partial class MusclesPage : ContentPage
+	public partial class ExerciseDetailPage : ContentPage
 	{
-		MusclesViewModel _viewmodel;
-		public MusclesPage()
+        ExerciseDetailViewModel _viewmodel;
+        public ExerciseDetailPage ()
 		{
 			InitializeComponent ();
-
-			BindingContext = _viewmodel = new MusclesViewModel();
-		}
-	}
+            BindingContext = _viewmodel = new ExerciseDetailViewModel();
+        }
+    }
 }

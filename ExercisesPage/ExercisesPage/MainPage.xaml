@@ -24,6 +24,6 @@
     </Shell.Resources>
 
     <TabBar>
-        <ShellContent Title="Browse" Icon="icon_feed.png" ContentTemplate="{DataTemplate local:MusclesPage}" />
+        <ShellContent Title="Browse" ContentTemplate="{DataTemplate local:MusclesPage}" />
     </TabBar>
 </Shell>

@@ -13,8 +13,10 @@ namespace ExercisesPage.Services
 
         public ExerciseAPIService()
         {
-            _client = new HttpClient();
-            _client.BaseAddress = new Uri("https://api.api-ninjas.com/");
+            _client = new HttpClient
+            {
+                BaseAddress = new Uri("https://api.api-ninjas.com/")
+            };
             _client.DefaultRequestHeaders.Add("X-Api-Key", "hAAb80fMaEfVeHJzefrGew==mtANz9qbscXtURDo");
         }
 

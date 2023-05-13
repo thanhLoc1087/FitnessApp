@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ExercisesPage.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -12,9 +13,12 @@ namespace ExercisesPage.Views
 	[XamlCompilation(XamlCompilationOptions.Compile)]
 	public partial class ExercisePage : ContentPage
 	{
-		public ExercisePage ()
+        ExerciseViewModel _viewmodel;
+
+        public ExercisePage ()
 		{
 			InitializeComponent ();
-		}
-	}
+            BindingContext = _viewmodel = new ExerciseViewModel();
+        }
+    }
 }

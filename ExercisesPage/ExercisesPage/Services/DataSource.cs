@@ -7,7 +7,7 @@ namespace ExercisesPage.Services
 {
     internal class DataSource : IDataStore<Exercise>
     {
-        readonly List<Exercise> exercises;
+        public List<Exercise> exercises;
         public DataSource() 
         {
             exercises = new List<Exercise>();
@@ -18,7 +18,7 @@ namespace ExercisesPage.Services
 
             return await Task.FromResult(true);
         }
-
+        
         public async Task<bool> DeleteItemAsync(string name)
         {
             var oldItem = exercises.Where((Exercise arg) => arg.Name == name).FirstOrDefault();
