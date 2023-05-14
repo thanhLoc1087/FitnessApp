@@ -17,13 +17,19 @@ namespace ExercisesPage.ViewModels
         private string difficulty;
         private string instruction;
         private string videoPath;
+        HtmlWebViewSource htmlWebViewSource;
+        public HtmlWebViewSource HtmlWebViewSource
+        {
+            get => htmlWebViewSource;
+            set => SetProperty(ref htmlWebViewSource, value);
+        }
 
         public string Name
         {
             get => name;
             set
             {
-                name = value;
+                SetProperty(ref name, value);
                 LoadItemId(value);
             }
         }
@@ -56,7 +62,14 @@ namespace ExercisesPage.ViewModels
         public string VideoPath 
         { 
             get => videoPath;
-            set => SetProperty(ref videoPath, value);
+            set
+            {
+                SetProperty(ref videoPath, value);
+                //HtmlWebViewSource = new HtmlWebViewSource { 
+                //    Html = @"<html><body><iframe width=""100%"" height=""100%"" src=""https://www.youtube.com/embed/AVN-wjJxOSc"" frameborder=""0"" allowfullscreen></iframe></body></html>"
+                //};
+                //HtmlWebViewSource.SetBinding(HtmlWebViewSource.HtmlProperty, "HTMLDesc");
+            }
         }
 
         public async void LoadItemId(string itemId)
@@ -69,7 +82,7 @@ namespace ExercisesPage.ViewModels
                 Equipment = item.Equipment;
                 Difficulty = item.Difficulty;
                 Instructions = item.Instructions;
-                VideoPath = "https://www.youtube.com/watch?v=AVN-wjJxOSc";
+                VideoPath = "https://youtu.be/gSRvFyzg8To";
             }
             catch (Exception)
             {

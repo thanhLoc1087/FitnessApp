@@ -24,6 +24,10 @@
                     </VisualStateGroupList>
                 </Setter>
             </Style>
+            <Style TargetType="Label">
+                <Setter Property="FontSize" Value="Body"/>
+                <Setter Property="TextColor" Value="Black"/>
+            </Style>
         </ResourceDictionary>
     </Application.Resources>
 </Application>
