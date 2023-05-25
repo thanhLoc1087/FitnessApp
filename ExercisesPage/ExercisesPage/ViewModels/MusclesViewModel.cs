@@ -33,9 +33,15 @@ namespace ExercisesPage.ViewModels
                 return;
 
             // This will push the ItemDetailPage onto the navigation stack
+            //await Shell.Current.GoToAsync($"{nameof(ExercisePage)}");
             await Shell.Current.GoToAsync($"{nameof(ExercisePage)}?{nameof(ExerciseViewModel.Muscle)}={item.Name}");
         }
 
+        //public List<MuscleGroupEnum> MuscleGroups { get; } = new List<MuscleGroupEnum>
+        //{
+        //    MuscleGroupEnum.lats,
+        //    MuscleGroupEnum.biceps,
+        //};
         public List<MuscleGroup> MuscleGroups { get; } = new List<MuscleGroup>
         {
             new MuscleGroup("Abdominals", MuscleGroupEnum.abdominals),

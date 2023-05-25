@@ -1,4 +1,5 @@
-﻿using ExercisesPage.Views;
+﻿using ExercisesPage.ViewModels;
+using ExercisesPage.Views;
 using System;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
@@ -16,6 +17,7 @@ namespace ExercisesPage
 
         protected override void OnStart()
         {
+            base.OnStart();
         }
 
         protected override void OnSleep()

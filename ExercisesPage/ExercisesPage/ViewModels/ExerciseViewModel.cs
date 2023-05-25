@@ -13,7 +13,7 @@ namespace ExercisesPage.ViewModels
     [QueryProperty(nameof(Muscle), nameof(Muscle))]
     class ExerciseViewModel : BaseViewModel
     {
-        public string _muscle;
+        string _muscle;
         ExerciseAPIService _service;
         public Command<Exercise> ItemTapped { get; }
 
@@ -28,52 +28,8 @@ namespace ExercisesPage.ViewModels
             get => _muscle; 
             set
             {
-                value = value.ToLower();
-                switch(value)
-                {
-                    case "abdominals":
-                        GetExercisesByMuscle(AbdominalsExercises, "abdominals");
-                        break;
-                    case "biceps":
-                        GetExercisesByMuscle(BicepsExercises, "biceps");
-                        break;
-                    case "calves":
-                        GetExercisesByMuscle(CalvesExercises, "calves");
-                        break;
-                    case "chest":
-                        GetExercisesByMuscle(ChestExercises, "chest");
-                        break;
-                    case "forearms":
-                        GetExercisesByMuscle(ForearmsExercises, "forearms");
-                        break;
-                    case "glutes":
-                        GetExercisesByMuscle(GlutesExercises, "glutes");
-                        break;
-                    case "hamstrings":
-                        GetExercisesByMuscle(HamstringsExercises, "hamstrings");
-                        break;
-                    case "lats":
-                        GetExercisesByMuscle(LatsExercises, "lats");
-                        break;
-                    case "lower back":
-                        GetExercisesByMuscle(LowerBackExercises, "lower_back");
-                        break;
-                    case "middle back":
-                        GetExercisesByMuscle(MiddleBackExercises, "middle_back");
-                        break;
-                    case "neck":
-                        GetExercisesByMuscle(NeckExercises, "neck");
-                        break;
-                    case "quadriceps":
-                        GetExercisesByMuscle(QuadricepsExercises, "quadriceps");
-                        break;
-                    case "traps":
-                        GetExercisesByMuscle(TrapsExercises, "traps");
-                        break;
-                    case "tricep":
-                        GetExercisesByMuscle(TricepExercises, "tricep");
-                        break;
-                }
+                Title = value;
+                GetExercisesByMuscle();
                 SetProperty(ref _muscle, value);
             }
         }
@@ -101,22 +57,14 @@ namespace ExercisesPage.ViewModels
         List<Exercise> TrapsExercises;
         List<Exercise> TricepExercises;
 
-        async void GetExercisesByMuscle(List<Exercise> exercises, string muscle)
+        void GetExercisesByMuscle()
         {
-            if (exercises != null)
-            {
-                return;
-            } 
-            else
-            {
-                exercises = await GetExercises(muscle);
-                CacheExercises(exercises);
-                MuscleExercises = exercises;
-            }
+           MuscleExercises = GetExercises();
         }
-        public async Task<List<Exercise>> GetExercises(string muscle)
+        public List<Exercise> GetExercises()
         {
-            return await _service.GetExercisesByMuscleGroup(muscle);
+            Debug.WriteLine("Made it to getExercise");
+            return _service.ReadJsonFile();
         }
         private async void OnItemSelected(Exercise item)
         {

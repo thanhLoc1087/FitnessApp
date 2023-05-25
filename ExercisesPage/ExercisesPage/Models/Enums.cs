@@ -19,12 +19,28 @@
     }
     class MuscleGroup
     {
-        public MuscleGroup(string Name, MuscleGroupEnum Enum) 
+        public MuscleGroup(string Name, MuscleGroupEnum Enum)
         {
             this.Name = Name;
             this.Enum = Enum;
         }
         public string Name { get; set; }
         public MuscleGroupEnum Enum { get; set; }
+    }
+    enum DifficultyEnum
+    {
+        beginner,
+        intermediate,
+        expert,
+    }
+    enum ExerciseTypeEnum
+    {
+        cardio,
+        olympic_weightlifting,
+        plyometrics,
+        powerlifting,
+        strength,
+        stretching,
+        strongman,
     }
 }

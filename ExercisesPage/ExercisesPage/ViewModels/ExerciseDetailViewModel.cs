@@ -77,10 +77,10 @@ namespace ExercisesPage.ViewModels
             try
             {
                 var item = await MusclesViewModel.DataSource.GetItemAsync(itemId);
-                Type = item.Type;
-                Muscle = item.Muscle;
+                Type = item.Type.ToString();
+                Muscle = item.Muscle.ToString();
                 Equipment = item.Equipment;
-                Difficulty = item.Difficulty;
+                Difficulty = item.Difficulty.ToString();
                 Instructions = item.Instructions;
                 VideoPath = "https://youtu.be/gSRvFyzg8To";
             }

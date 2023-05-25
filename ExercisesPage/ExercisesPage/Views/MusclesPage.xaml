@@ -14,6 +14,7 @@
                 <DataTemplate>
                     <StackLayout Padding="10" x:DataType="model:MuscleGroup">
                         <Label Text="{Binding Name}" Style="{DynamicResource ListItemTextStyle}"/>
+                        <BoxView HeightRequest="1" Color="#bdbdbd"/>
                         <StackLayout.GestureRecognizers>
                             <TapGestureRecognizer 
                                 NumberOfTapsRequired="1"
