@@ -27,9 +27,6 @@ namespace ExercisesPage.Models
             Difficulty = difficulty;
             Instructions = instructions;
         }
-        public string ToString()
-        {
-            return $"Name: {Name}, Type: {Type}, Muscle: {Muscle}, Equipment: {Equipment}, Difficulty: {Difficulty}";
-        }
+        public string ToString() => $"Name: {Name}, Type: {Type}, Muscle: {Muscle}, Equipment: {Equipment}, Difficulty: {Difficulty}";
     }
 }

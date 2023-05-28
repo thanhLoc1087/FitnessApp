@@ -19,13 +19,15 @@
     }
     class MuscleGroup
     {
-        public MuscleGroup(string Name, MuscleGroupEnum Enum)
+        public MuscleGroup(string Name, MuscleGroupEnum Enum, string imagePath)
         {
             this.Name = Name;
             this.Enum = Enum;
+            ImagePath = imagePath;
         }
         public string Name { get; set; }
         public MuscleGroupEnum Enum { get; set; }
+        public string ImagePath { get; set; }
     }
     enum DifficultyEnum
     {

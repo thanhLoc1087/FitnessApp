@@ -13,7 +13,10 @@
             <CollectionView.ItemTemplate>
                 <DataTemplate>
                     <StackLayout Padding="10" x:DataType="model:MuscleGroup">
-                        <Label Text="{Binding Name}" Style="{DynamicResource ListItemTextStyle}"/>
+                        <StackLayout Orientation="Horizontal">
+                            <Image Source="{Binding ImagePath}" WidthRequest="60" HeightRequest="60"/>
+                            <Label VerticalTextAlignment="Center" Text="{Binding Name}" Style="{DynamicResource ListItemTextStyle}"/>
+                        </StackLayout>
                         <BoxView HeightRequest="1" Color="#bdbdbd"/>
                         <StackLayout.GestureRecognizers>
                             <TapGestureRecognizer 

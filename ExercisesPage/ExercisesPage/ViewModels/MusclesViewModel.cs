@@ -10,19 +10,10 @@ namespace ExercisesPage.ViewModels
     internal class MusclesViewModel : BaseViewModel
     {
         public Command<MuscleGroup> ItemTapped { get; }
-        private List<Exercise> _exercises;
-        public List<Exercise> Exercises
-        {
-            get => _exercises; set
-            {
-                SetProperty(ref _exercises, value);
-            }
-        }
         static public DataSource DataSource { get; set; }
 
         public MusclesViewModel()
         {
-            _exercises = new List<Exercise>();
             ItemTapped = new Command<MuscleGroup>(OnItemSelected);
             DataSource = new DataSource();
         }
@@ -31,33 +22,24 @@ namespace ExercisesPage.ViewModels
         {
             if (item == null)
                 return;
-
-            // This will push the ItemDetailPage onto the navigation stack
-            //await Shell.Current.GoToAsync($"{nameof(ExercisePage)}");
-            await Shell.Current.GoToAsync($"{nameof(ExercisePage)}?{nameof(ExerciseViewModel.Muscle)}={item.Name}");
+            await Shell.Current.GoToAsync($"{nameof(ExercisePage)}?{nameof(ExerciseViewModel.Muscle)}={item.Enum.ToString()}");
         }
-
-        //public List<MuscleGroupEnum> MuscleGroups { get; } = new List<MuscleGroupEnum>
-        //{
-        //    MuscleGroupEnum.lats,
-        //    MuscleGroupEnum.biceps,
-        //};
         public List<MuscleGroup> MuscleGroups { get; } = new List<MuscleGroup>
         {
-            new MuscleGroup("Abdominals", MuscleGroupEnum.abdominals),
-            new MuscleGroup("Biceps", MuscleGroupEnum.biceps),
-            new MuscleGroup("Calves", MuscleGroupEnum.calves),
-            new MuscleGroup("Chest", MuscleGroupEnum.chest),
-            new MuscleGroup("Forearms", MuscleGroupEnum.forearms),
-            new MuscleGroup("Glutes", MuscleGroupEnum.glutes),
-            new MuscleGroup("Hamstrings", MuscleGroupEnum.hamstrings),
-            new MuscleGroup("Lats", MuscleGroupEnum.lats),
-            new MuscleGroup("Lower Back", MuscleGroupEnum.lower_back),
-            new MuscleGroup("Middle Back", MuscleGroupEnum.middle_back),
-            new MuscleGroup("Neck", MuscleGroupEnum.neck),
-            new MuscleGroup("Quadriceps", MuscleGroupEnum.quadriceps),
-            new MuscleGroup("Traps", MuscleGroupEnum.traps),
-            new MuscleGroup("Tricep", MuscleGroupEnum.tricep),
+            new MuscleGroup("Abdominals", MuscleGroupEnum.abdominals, "abdominals_muscle.jpg"),
+            new MuscleGroup("Biceps", MuscleGroupEnum.biceps, "biceps_muscle.jpg"),
+            new MuscleGroup("Calves", MuscleGroupEnum.calves, "calves_muscle.jpg"),
+            new MuscleGroup("Chest", MuscleGroupEnum.chest, "chest_muscle.jpg"),
+            new MuscleGroup("Forearms", MuscleGroupEnum.forearms, "forearms_muscle.jpg"),
+            new MuscleGroup("Glutes", MuscleGroupEnum.glutes, "glutes_muscle.jpg"),
+            new MuscleGroup("Hamstrings", MuscleGroupEnum.hamstrings, "hamstrings_muscle.jpg"),
+            new MuscleGroup("Lats", MuscleGroupEnum.lats, "lats_muscle.jpg"),
+            new MuscleGroup("Lower Back", MuscleGroupEnum.lower_back, "abdominals_muscle.jpg"),
+            new MuscleGroup("Middle Back", MuscleGroupEnum.middle_back, "middle_back_muscle.jpg"),
+            new MuscleGroup("Neck", MuscleGroupEnum.neck, "neck_muscle.jpg"),
+            new MuscleGroup("Quadriceps", MuscleGroupEnum.quadriceps, "quadriceps_muscle.jpg"),
+            new MuscleGroup("Traps", MuscleGroupEnum.traps, "traps_muscle.jpg"),
+            new MuscleGroup("Tricep", MuscleGroupEnum.tricep, "triceps_muscle.jpg"),
         };
     }
 }

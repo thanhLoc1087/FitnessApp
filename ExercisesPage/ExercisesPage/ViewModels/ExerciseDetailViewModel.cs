@@ -16,13 +16,7 @@ namespace ExercisesPage.ViewModels
         private string equipment;
         private string difficulty;
         private string instruction;
-        private string videoPath;
-        HtmlWebViewSource htmlWebViewSource;
-        public HtmlWebViewSource HtmlWebViewSource
-        {
-            get => htmlWebViewSource;
-            set => SetProperty(ref htmlWebViewSource, value);
-        }
+        private string gif;
 
         public string Name
         {
@@ -59,16 +53,12 @@ namespace ExercisesPage.ViewModels
             get => instruction;
             set => SetProperty(ref instruction, value);
         }
-        public string VideoPath 
+        public string Gif 
         { 
-            get => videoPath;
+            get => gif;
             set
             {
-                SetProperty(ref videoPath, value);
-                //HtmlWebViewSource = new HtmlWebViewSource { 
-                //    Html = @"<html><body><iframe width=""100%"" height=""100%"" src=""https://www.youtube.com/embed/AVN-wjJxOSc"" frameborder=""0"" allowfullscreen></iframe></body></html>"
-                //};
-                //HtmlWebViewSource.SetBinding(HtmlWebViewSource.HtmlProperty, "HTMLDesc");
+                SetProperty(ref gif, value);
             }
         }
 
@@ -82,7 +72,7 @@ namespace ExercisesPage.ViewModels
                 Equipment = item.Equipment;
                 Difficulty = item.Difficulty.ToString();
                 Instructions = item.Instructions;
-                VideoPath = "https://youtu.be/gSRvFyzg8To";
+                Gif = "glute_bridge.gif";
             }
             catch (Exception)
             {

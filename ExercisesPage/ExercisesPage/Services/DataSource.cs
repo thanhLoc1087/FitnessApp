@@ -8,14 +8,15 @@ namespace ExercisesPage.Services
     internal class DataSource : IDataStore<Exercise>
     {
         public List<Exercise> exercises;
+        public ExerciseAPIService exerciseAPIService;
         public DataSource() 
         {
-            exercises = new List<Exercise>();
+            exerciseAPIService = new ExerciseAPIService();
+            exercises = exerciseAPIService.ReadJsonFile();
         }
         public async Task<bool> AddItemAsync(Exercise item)
         {
             exercises.Add(item);
-
             return await Task.FromResult(true);
         }
         
@@ -23,7 +24,6 @@ namespace ExercisesPage.Services
         {
             var oldItem = exercises.Where((Exercise arg) => arg.Name == name).FirstOrDefault();
             exercises.Remove(oldItem);
-
             return await Task.FromResult(true);
         }
 
@@ -42,7 +42,6 @@ namespace ExercisesPage.Services
             var oldItem = exercises.Where((Exercise arg) => arg.Name == item.Name).FirstOrDefault();
             exercises.Remove(oldItem);
             exercises.Add(item);
-
             return await Task.FromResult(true);
         }
     }

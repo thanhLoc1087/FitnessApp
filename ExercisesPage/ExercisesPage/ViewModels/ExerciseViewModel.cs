@@ -14,12 +14,10 @@ namespace ExercisesPage.ViewModels
     class ExerciseViewModel : BaseViewModel
     {
         string _muscle;
-        ExerciseAPIService _service;
         public Command<Exercise> ItemTapped { get; }
 
         public ExerciseViewModel() 
         {
-            _service = new ExerciseAPIService();
             ItemTapped = new Command<Exercise>(OnItemSelected);
         }
 
@@ -28,9 +26,9 @@ namespace ExercisesPage.ViewModels
             get => _muscle; 
             set
             {
-                Title = value;
-                GetExercisesByMuscle();
+                Title = value.ToUpper();
                 SetProperty(ref _muscle, value);
+                GetExercisesByMuscle(Muscle);
             }
         }
         List<Exercise> _muscleExercises;
@@ -57,14 +55,22 @@ namespace ExercisesPage.ViewModels
         List<Exercise> TrapsExercises;
         List<Exercise> TricepExercises;
 
-        void GetExercisesByMuscle()
+        void GetExercisesByMuscle(string muscleGroup)
         {
-           MuscleExercises = GetExercises();
+           MuscleExercises = GetExercises(muscleGroup);
         }
-        public List<Exercise> GetExercises()
+        public List<Exercise> GetExercises(string muscleGroup)
         {
-            Debug.WriteLine("Made it to getExercise");
-            return _service.ReadJsonFile();
+            Debug.WriteLine(muscleGroup);
+            List<Exercise> exerciseList = new List<Exercise>();
+            foreach(var exercise in MusclesViewModel.DataSource.exercises)
+            {
+                if (exercise.Muscle == muscleGroup)
+                {
+                    exerciseList.Add(exercise);
+                }
+            }
+            return exerciseList;
         }
         private async void OnItemSelected(Exercise item)
         {
@@ -73,11 +79,6 @@ namespace ExercisesPage.ViewModels
 
             // This will push the ItemDetailPage onto the navigation stack
             await Shell.Current.GoToAsync($"{nameof(ExerciseDetailPage)}?{nameof(ExerciseDetailViewModel.Name)}={item.Name}");
-        }
-
-        void CacheExercises(List<Exercise> exercises)
-        {
-            MusclesViewModel.DataSource.exercises.AddRange(exercises);
         }
     }
 }
